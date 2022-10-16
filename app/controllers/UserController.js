@@ -16,7 +16,11 @@ class UserController {
       { email, password: await encryptPassword(password), username },
     );
     const token = await jwtService.registerJwt(userData.id);
-    return successResponse({ res, message: 'user created', data: createUserDto(userData, token) });
+    return successResponse({
+      res,
+      message: 'user created',
+      data: createUserDto(userData, token),
+    });
   }
 
   async update(req, res) {
@@ -27,7 +31,11 @@ class UserController {
       userId,
       { email, password: await encryptPassword(password), username },
     );
-    return successResponse({ res, message: 'user updated', data: updateUserDto(userData) });
+    return successResponse({
+      res,
+      message: 'user updated',
+      data: updateUserDto(userData),
+    });
   }
 }
 

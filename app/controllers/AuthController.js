@@ -16,7 +16,11 @@ class AuthController {
       throw new NotFoundError('User password is incorrect');
     }
     const token = await jwtService.registerJwt(userData.id);
-    return successResponse({ res, message: 'user logged In', data: loginDto(userData, token) });
+    return successResponse({
+      res,
+      message: 'user logged In',
+      data: loginDto(userData, token),
+    });
   }
 
   async logout(req, res) {

@@ -13,7 +13,11 @@ class GroupController {
     const group = await Group.findOne({ name });
     if (group) throw new NotFoundError('Please use different group name');
     const users = (await User.find({ email: { $in: email } })).map((user) => user._doc._id);
-    return successResponse({ res, message: 'Group created', data: createGroupDto(await Group.create({ name, users, owner: req.user._id })) });
+    return successResponse({
+      res,
+      message: 'Group created',
+      data: createGroupDto(await Group.create({ name, users, owner: req.user._id })),
+    });
   }
 
   async update(req, res) {
@@ -25,7 +29,11 @@ class GroupController {
       { $addToSet: { users: { $each: users } }, name },
       { new: true },
     );
-    return successResponse({ res, message: 'Group Updated', data: updateGroupDto(updatedGroup) });
+    return successResponse({
+      res,
+      message: 'Group Updated',
+      data: updateGroupDto(updatedGroup),
+    });
   }
 
   async get(req, res) {

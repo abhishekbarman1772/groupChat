@@ -5,7 +5,11 @@ const { createMessageDto, likeMessageDto } = require('../dto/MessageDto');
 class MessageController {
   async create(req, res) {
     const { body: { message }, params: { groupId }, user: { _id } } = req;
-    return successResponse({ res, message: 'Message created', data: createMessageDto(await Message.create({ message, user: _id, group: groupId })) });
+    return successResponse({
+      res,
+      message: 'Message created',
+      data: createMessageDto(await Message.create({ message, user: _id, group: groupId })),
+    });
   }
 
   async like(req, res) {
@@ -15,7 +19,11 @@ class MessageController {
       like ? { $push: { likedBy: _id } } : { $pull: { likedBy: _id } },
       { new: true },
     );
-    return successResponse({ res, message: 'Message liked', data: likeMessageDto(updatedGroup) });
+    return successResponse({
+      res,
+      message: 'Message liked',
+      data: likeMessageDto(updatedGroup),
+    });
   }
 }
 
