@@ -6,4 +6,4 @@ use npm run dev for starting the project
 
 for running the test cases you need to install (pytest) and run test_sample.py by using pytest
 
-WARNING:- server shoud be running while running testgit config --global user.email "you@example.com"
+WARNING:- server shoud be running while running test
