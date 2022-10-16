@@ -11,6 +11,4 @@ router.patch('/:groupId', groupInst.update);
 router.get('/', groupInst.get);
 router.delete('/:groupId', groupInst.delete);
 
-
-
 module.exports = router;

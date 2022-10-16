@@ -7,13 +7,11 @@ const errorHandler = async function (error, req, res, next) {
         status: error.code,
         message: error.message,
       });
-  }else{
-    console.log(error)
-    res.status(500).send({
-      error : true,
-      message : "Internal Server Error"
-    })
   }
+  res.status(500).send({
+    error: true,
+    message: 'Internal Server Error',
+  });
 };
 
 module.exports = errorHandler;

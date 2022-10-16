@@ -1,14 +1,11 @@
-
 const seedersExec = async () => {
-    await require('../app/common/mongoose').connectToDb()
+  await require('../app/common/mongoose').connectToDb();
 
-    await require('../seeders/user')()
-    
-    await require('../app/common/mongoose').disconnectToDb()
+  await require('./user')();
 
-    process.exit(0)
-}
+  await require('../app/common/mongoose').disconnectToDb();
 
-seedersExec()
+  process.exit(0);
+};
 
-
+seedersExec();

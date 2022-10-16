@@ -8,7 +8,7 @@ const messageSchema = new Schema({
   user: {
     type: Types.ObjectId,
     ref: 'Users',
-    required: true
+    required: true,
   },
   group: { type: Types.ObjectId, ref: 'Groups', required: true },
   likedBy: [{ type: Types.ObjectId, ref: 'Users' }],

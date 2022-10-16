@@ -1,4 +1,5 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "commonjs": true,
@@ -11,5 +12,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "class-methods-use-this":"off",
+        "no-underscore-dangle":"off"
     }
 }

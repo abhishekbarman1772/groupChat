@@ -9,9 +9,9 @@ const connectToDb = () => mongoose.connect(
   },
 );
 
-const disconnectToDb = () => mongoose.disconnect()
+const disconnectToDb = () => mongoose.disconnect();
 
 module.exports = {
   connectToDb,
-  disconnectToDb
-}
+  disconnectToDb,
+};

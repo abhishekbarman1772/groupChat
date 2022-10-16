@@ -9,7 +9,7 @@ const groupSchema = new Schema({
   owner: {
     type: Types.ObjectId,
     ref: 'Users',
-    required: true
+    required: true,
   },
   users: [{ type: Types.ObjectId, ref: 'Users' }],
 }, {

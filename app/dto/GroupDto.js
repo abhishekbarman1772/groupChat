@@ -1,33 +1,23 @@
-const createGroupDto = (group) =>{
-    return { 
-        id: group._id,
-        name: group.name,
-        users: group.users,
-    }
-}
+const createGroupDto = (group) => ({
+  id: group._id,
+  name: group.name,
+  users: group.users,
+});
 
-const updateGroupDto = (group) =>{
-    return {
-        id: group._id,
-        name: group.name,
-        users: group.users,
-    }
-}
+const updateGroupDto = (group) => ({
+  id: group._id,
+  name: group.name,
+  users: group.users,
+});
 
-const groupsDto = (groups) =>{
-    return groups.map(group=>{
-        return {
-            id: group._id,
-            name: group.name,
-            users: group.users.map(user=>{
-                return user
-            })
-        }
-    })
-}
+const groupsDto = (groups) => groups.map((group) => ({
+  id: group._id,
+  name: group.name,
+  users: group.users.map((user) => user),
+}));
 
 module.exports = {
-    createGroupDto,
-    updateGroupDto,
-    groupsDto,
+  createGroupDto,
+  updateGroupDto,
+  groupsDto,
 };

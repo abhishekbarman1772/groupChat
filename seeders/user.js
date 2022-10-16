@@ -1,26 +1,26 @@
 const User = require('../app/models/User');
 const { encryptPassword } = require('../app/utils/helper');
 
-module.exports  = async () => {
+module.exports = async () => {
   const data = [
     {
       email: 'admin@gmail.com',
       username: 'Admin',
       password: await encryptPassword('12345'),
-      role: 'admin'
+      role: 'admin',
     },
     {
       email: 'user1@gmail.com',
       username: 'Admin',
       password: await encryptPassword('12345'),
-      role: 'user'
+      role: 'user',
     },
     {
       email: 'user2@gmail.com',
       username: 'Admin',
       password: await encryptPassword('12345'),
-      role: 'user'
-    }
+      role: 'user',
+    },
   ];
-  if(await User.countDocuments() === 0) await User.insertMany(data);
-}
+  if (await User.countDocuments() === 0) await User.insertMany(data);
+};
